@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Hima ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+overflow:hidden;
+font-family:Poppins,sans-serif;
+height:100vh;
+background:linear-gradient(-45deg,#ff4b91,#ff8fab,#ffccd5,#ffc2d1);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+text-align:center;
+color:white;
+z-index:5;
+padding:20px;
+}
+
+h1{
+font-size:70px;
+font-family:'Great Vibes',cursive;
+text-shadow:0 0 20px white;
+animation:fade 2s;
+}
+
+h2{
+margin-top:20px;
+font-size:38px;
+display:none;
+animation:fade 1s;
+}
+
+.message{
+margin-top:30px;
+font-size:34px;
+display:none;
+animation:fade 1s;
+}
+
+button{
+padding:14px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+transition:.4s;
+margin:10px;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.next{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#ff0066;
+color:white;
+box-shadow:0 0 20px white;
+}
+
+.yes{
+background:#00d26a;
+color:white;
+}
+
+.no{
+background:#ff3d3d;
+color:white;
+}
+
+#buttons{
+display:none;
+margin-top:30px;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.heart{
+position:absolute;
+color:white;
+font-size:20px;
+animation:float linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+30%{
+opacity:1;
+}
+100%{
+transform:translateY(-100vh) scale(1.5);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="title"></h1>
+
+<h2 id="question">
+Will you be my girlfriend? ❤️
+</h2>
+
+<div id="buttons">
+<button class="yes" onclick="yes()">YES ❤️</button>
+<button class="no" onclick="no()">NO 🙈</button>
+</div>
+
+<div class="message" id="message"></div>
+
+</div>
+
+<button class="next" id="next" onclick="nextPage()">
+Next ➜
+</button>
+
+<script>
+
+const text="Hi Hima ❤️";
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("title").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,120);
+}
+}
+typing();
+
+function nextPage(){
+document.getElementById("question").style.display="block";
+document.getElementById("buttons").style.display="block";
+document.getElementById("next").style.display="none";
+}
+
+function yes(){
+document.getElementById("message").style.display="block";
+document.getElementById("message").innerHTML=
+"❤️ You made me the happiest person on Earth ❤️";
+document.getElementById("buttons").style.display="none";
+}
+
+function no(){
+document.getElementById("message").style.display="block";
+document.getElementById("message").innerHTML=
+"😘 You cannot say no to me ❤️";
+}
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*25)+"px";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+heart.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
